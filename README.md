@@ -1,2 +1,2 @@
 # record_app
-app use to review music records 
+app used to review music records 
