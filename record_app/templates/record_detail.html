@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>{{ page_data.record.record_name }}</h2>
+    <img src="{{ page_data.image }}" style="width: 250px">
+    <p>Record ID: {{ page_data.record.record_id }}</p>
+    <p>Description: {{ page_data.record.description }}</p>
+    <p>Cost: {{ page_data.record.cost }}</p>
+    <p>Creator: {{ page_data.record.creator.name }} ({{ page_data.record.creator.email }})</p>
+    <form action="/records/{{ page_data.record.record_id }}/like/" method="POST">
+        <button>Like</button>
+    </form>
+    <form action="/records/{{ page_data.record.record_id }}/drop/" method="POST">
+        <button>Un-Like</button>
+    </form>
+    <br><br>
+    
+    <h3>Update Record Info:</h3>
+    <form action="/records/{{ page_data.record.record_id }}/", method="POST">
+        <input type="text" name="record_name" placeholder="record Name..."/>
+        <input type="text" name="description" placeholder="Description..."/>  
+        <input type="number" name="cost" placeholder="Cost..."/>
+        <button>Update</button>
+    </form>
+
+    <br><br>
+
+    <h3>Update Image:</h3>
+    <form action="/records/{{ page_data.record.record_id }}/image/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <input type="submit">
+    </form>
+
+
+    <br/><br/>
+    
+    <form action = "/records/{{ page_data.record.record_id }}/delete/", method="POST">
+        <button>DELETE RECORD</button>
+    </form>
+
+{% endblock %}
