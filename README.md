@@ -22,6 +22,7 @@ PostgreSQL
 # Setup 
 
 # CLONE REPO:
+https://github.com/Konnkeryou/record_app.git
 
 # CREATE VENV:
 # /record_app/
